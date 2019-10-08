@@ -10,22 +10,20 @@
 </head>
 <body>
     <div id="app">
-        <input type="text" v-model="inputVal">
+        <input type="text" v-model="inputVal"> 
         <button @click="handleSubmit">submit</button>
         <ul>
-            <todo-item  
-                v-for="(item, index) in list" 
-                :content="item" 
-                :index="index"
-                @delete="handleDelete(index)"></todo-item>
+            <todo-item  v-for="(item, index) in list" :content="item" :index="index" @delete="handleDelete(index)" />
         </ul>
     </div>
     <script>
+        // 全局组件
         // Vue.component('todoItem', {
         //     props: ['content'],
         //     template: `<li>{{content}}</li>`
         // })
-
+        
+        // 局部组件
         const todoItem = {
             props: ['content', 'index'],
             template: `<li @click="deleteList">{{content}}</li>`,
