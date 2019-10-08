@@ -9,25 +9,41 @@
     <script src="./node_modules/vue/dist/vue.js"></script>
 </head>
 <body>
-    <div id="app">
-        <input type="text" v-model="inputVal">
-        <button @click="handleSubmit">submit</button>
-        <ul>
-            <li v-for="item in list">{{item}}</li>
-        </ul>
-    </div>
+    <div id="app"></div>
     <script>
         const app = new Vue({
             el: '#app',
-            data: {
-                list: [],
-                inputVal: ''
-            },
-            methods: {
-                handleSubmit() {
-                    this.$data.list.push(this.$data.inputVal);
-                    this.$data.inputVal = '';
+            data() {
+                return {
+                    msg: 'hello world'
                 }
+            },
+            template: `<div>{{msg}}</div>`,
+            beforeCreate() {
+                console.log('beforeCreate...');
+            },
+            created() {
+                console.log('created...'); 
+            },
+            beforeMount() {
+                console.log(this.$el);
+                console.log('beforeMount...');
+            },
+            mounted() {
+                console.log(this.$el);
+                console.log('mounted...');
+            },
+            beforeDestroy() {
+                console.log('beforeDestroy...');
+            },
+            destroyed() {
+                console.log('destroyed...');
+            },
+            beforeUpdate() {
+                console.log('beforeUpdate...');
+            },
+            updated() {
+                console.log('updated...');
             },
         })
     </script>
