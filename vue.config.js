@@ -1,7 +1,6 @@
 const path = require('path');
-function resolve(dir) {
-  return path.join(__dirname, dir)
-}
+const apiRoutes = require('./mock');
+const resolve = (dir) => path.join(__dirname, dir);
 
 module.exports = {
     runtimeCompiler: true,
@@ -14,13 +13,19 @@ module.exports = {
         config.output.filename('[name].[hash].js').end(); 
     },
     devServer: {
-        open: true, //配置自动启动浏览器
-        proxy: {// 配置跨域处理 可以设置多个
-        '/api': {
-            target: 'xxxx',
-            ws: true,
-            changeOrigin: true
-        },
+        // open: true, 
+        // proxy: {
+        //     '/api': {
+        //         target: 'http://127.0.0.1:8080',
+        //         ws: true,
+        //         changeOrigin: true,
+        //         pathRewrite: {
+        //             '^/api': '/mock'
+        //         }
+        //     },
+        // },
+        before(app) {
+            app.use('/api', apiRoutes)
         }
     }
 }

@@ -8,7 +8,7 @@
         输入城市/景点/游玩主题
     </div>
     <div class="header-right">
-        <span class="city">城市</span>
+        <router-link to="/city"><span class="city">城市</span></router-link>
         <span class="iconfont arrow-icon">&#xe65c;</span>
     </div>
   </div>
@@ -23,8 +23,8 @@ export default {
 <style lang="scss" scoped>
     @import '~styles/varibles.scss';
     .header{
-        height: .88rem;
-        line-height: .88rem;
+        height: $headerHeight;
+        line-height: $headerHeight;
         color: #fff;
         background: $bgcolor;
         display: flex;
@@ -32,6 +32,8 @@ export default {
             width: .8rem;
             text-align: center;
             .back-icon{
+                display: inline-block;
+                width: .5rem;
                 font-size: .5rem
             }
         }
@@ -45,6 +47,8 @@ export default {
             color: #ccc;
             padding-left: .2rem;
             .search-icon{
+                display: inline-block;
+                width: .3rem;
                 font-size: .3rem;
             }
         }
@@ -54,8 +58,11 @@ export default {
             font-size: 0;
             .city{
                 font-size: .28rem;
+                color: #fff;
             }
             .arrow-icon{
+                display: inline-block;
+                width: .5rem;
                 font-size: .5rem;
                 vertical-align: top;
             }
