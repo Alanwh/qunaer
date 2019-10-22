@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+    <div class="header border-bottom">
         <router-link to="/"><span class="iconfont back-icon">&#xe658;</span></router-link>
         城市选择
     </div>
@@ -19,7 +19,11 @@ export default {
     background: $bgcolor;
     color: #fff;
     text-align: center;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
     .back-icon{
         position: absolute;
         top: 0;
