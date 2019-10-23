@@ -19,11 +19,7 @@ export default {
     background: $bgcolor;
     color: #fff;
     text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
+    position: relative;
     .back-icon{
         position: absolute;
         top: 0;

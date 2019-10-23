@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="all-city">
-              <div class="list" v-for="(cities, key) of cities" :key="key">
+              <div class="list" v-for="(cities, key) of cities" :key="key" :ref="key">
                   <div class="title">{{key}}</div>
                   <div class="item-list">
                     <div class="city-enum border-bottom" v-for="city of cities" :key="city.id">{{city.name}}</div>
@@ -31,10 +31,16 @@ export default {
   name: 'cityList',
   props: {
     cities: Object,
-    hotCities: Array
+    hotCities: Array,
+    letter: String
   },
   mounted () {
-    this.scroll = new BScroll(this.$refs.wrapper)
+    this.scroll = new BScroll(this.$refs.wrapper, { click: true })
+  },
+  watch: {
+    letter () {
+      this.scroll.scrollToElement(this.$refs[this.letter][0])
+    }
   }
 }
 </script>
@@ -43,16 +49,12 @@ export default {
 @import '~styles/varibles.scss';
 .wrapper{
     position: absolute;
-    top: 0;
+    top: 1.88rem;
     width: 100%;
     left: 0;
+    bottom: 0; // top: 0, bottom:0, 自动占满剩下屏幕
     overflow: hidden;
-    height: 100%;
     box-sizing: border-box;
-    .city-box{
-      // height: 100%; 定高滚动失效
-      padding-top: 1.88rem;
-    }
 }
 .title{
     background: #efefef;

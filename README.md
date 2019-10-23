@@ -34,3 +34,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### page icons
 ### mixin
+
+### better-scroll
+* 中间div定高滚动失效
+* click: true
+
+### 自适应
+* top: 0, bottom: 0

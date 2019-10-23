@@ -17,11 +17,7 @@ export default {
     background: $bgcolor;
     padding: .2rem .4rem;
     display: flex;
-    position: fixed;
-    top: $headerHeight;
-    left: 0;
-    width: 100%;
-    z-index: 1;
+    position: relative;
     box-sizing: border-box;
     .search-icon{
         position: absolute;
