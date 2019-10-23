@@ -14,8 +14,8 @@ import HomeSwiper from './components/Swiper'
 import HomeIcons from './components/Icons'
 import HomeRecommend from './components/Recommend'
 import HomePlay from './components/Play'
+import { mapState } from 'vuex'
 import axios from 'axios'
-
 export default {
   name: 'home',
   components: {
@@ -30,12 +30,13 @@ export default {
       swiperList: [],
       iconList: [],
       recommendList: [],
-      playList: []
+      playList: [],
+      lastCity: ''
     }
   },
   methods: {
     getHomeInfo () {
-      axios.post('/api/home').then(this.handleHomeInfo)
+      axios.post('/api/home?city=' + this.city).then(this.handleHomeInfo)
     },
     handleHomeInfo (res) {
       if (res.statusText === 'OK' && res.data) {
@@ -47,7 +48,17 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapState(['city'])
+  },
+  activated () {
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city
+      this.getHomeInfo()
+    }
+  },
   mounted () {
+    this.lastCity = this.city
     this.getHomeInfo()
   }
 }
