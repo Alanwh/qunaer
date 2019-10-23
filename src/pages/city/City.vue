@@ -1,7 +1,7 @@
 <template>
   <div class="city-box">
     <city-header></city-header>
-    <city-search></city-search>
+    <city-search :cities="cities"></city-search>
     <city-list :cities="cities" :hotCities="hotCities" :letter="letter"></city-list>
     <city-alphabet :cities="cities" @change="handleChange"></city-alphabet>
   </div>
@@ -46,7 +46,7 @@ export default {
       }
     },
     handleChange (letter) {
-      this.letter = letter;
+      this.letter = letter
     }
   }
 }

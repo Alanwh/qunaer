@@ -20,6 +20,7 @@ export default {
     color: #fff;
     text-align: center;
     position: relative;
+    z-index: 2;
     .back-icon{
         position: absolute;
         top: 0;
