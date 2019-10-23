@@ -54,3 +54,15 @@
 ### 任务
 * 计算器实现两个计数器的和
 
+
+### vuex
+* <b>触发</b> store.commit()
+* <b>获取</b> store.state
+* <b>获取store</b> this.$store
+* <b>mutation必须是同步函数</b>
+* mapState, mapMutations
+* <b>payload</b> store.commit('inc', payload) => payload => {count: 10}
+* <b>对象参数</b> store.commit({type: 'inc', count: 10})
+* <b>使用常量参数</b> const INCREAMENT = 'INCREAMENT'
+* <b>actions可以处理异步, 最好返回Promise对象</b>
+
