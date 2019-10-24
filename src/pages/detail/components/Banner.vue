@@ -8,17 +8,21 @@
       <span class="num">13</span>
     </div>
     <div>
-      <Galary :show="show" @close="close"></Galary>
+      <fadeAni>
+        <Galary v-show="show" @close="close"></Galary>
+      </fadeAni>
     </div>
   </div>
 </template>
 
 <script>
 import Galary from 'common/galary/Galary'
+import fadeAni from 'common/fadeAni/Fade'
 export default {
   name: 'DetailBanner',
   components: {
-    Galary
+    Galary,
+    fadeAni
   },
   data () {
     return {

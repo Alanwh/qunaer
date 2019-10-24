@@ -1,5 +1,5 @@
 <template>
-  <div class="galary" @click.stop="toggle" v-show="show">
+  <div class="galary" @click.stop="toggle">
     <swiper class="wrapper" :options="swiperOption">
       <swiper-slide>
         <img class="swiper-img" src="https://dimg04.c-ctrip.com/images/350v170000013b88cE75C_C_640_360_Q60.jpg" >
@@ -18,9 +18,6 @@
 <script>
 export default {
   name: 'Galary',
-  props: {
-    show: Boolean
-  },
   data () {
     return {
       swiperOption: {
@@ -28,7 +25,8 @@ export default {
           el: '.swiper-pagination',
           type: 'fraction'
         },
-        paginationType: 'progress'
+        observeParents: true,
+        observer: true
       }
     }
   },
