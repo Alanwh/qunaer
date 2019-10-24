@@ -9,6 +9,7 @@ module.exports = {
         //命名 
         config.resolve.alias
         .set('styles', resolve('src/assets/styles'))
+        .set('common', resolve('src/common'))
         //打包文件带hash
         config.output.filename('[name].[hash].js').end(); 
     },

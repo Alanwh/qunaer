@@ -2,7 +2,7 @@
   <div class="recommend">
     <div class="title"><span class="iconfont love">&#xe85c;</span> 猜你喜欢</div>
     <div class="content">
-      <div class="list border-bottom" v-for="(item, index) in recommendList" :key="index">
+      <router-link :to="'/detail/000' + index" tag="div" class="list border-bottom" v-for="(item, index) in recommendList" :key="index">
         <div class="main">
           <div class="img">
             <img :src="item.imgUrl">
@@ -16,7 +16,7 @@
         <div class="tag">
           {{item.desc}}
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
