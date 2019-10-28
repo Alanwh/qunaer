@@ -64,11 +64,7 @@ export default {
     }
   },
   mounted () {
-    if (this.scroll) {
-      this.scroll.scrollTo({ y: 0 })
-    } else {
-      this.scroll = new Bscroll(this.$refs.search)
-    }
+    this.scroll = new Bscroll(this.$refs.search)
   }
 }
 </script>
